@@ -1,0 +1,11 @@
+// JSON Document
+[
+  {
+    "DEGREELEVELNAME": "ปริญญาตรี",
+    "DEGREENAME": "ศิลปกรรมศาสตรบัณฑิต",
+    "MAJORNAME": "การออกแบบสื่อนวัตกรรม",
+    "UNIVERSITYNAME": "มหาวิทยาลัยนเรศวร",
+    "GADUATEYEAR": "2552",
+    "GPA": "3.07"
+  }
+]

@@ -1,0 +1,29 @@
+// JSON Document
+[
+  {
+    "APPLY_ID": "1",
+    "STAFFID": "1234",
+    "PREFIXNAME": "นาย",
+    "STAFFNAME": "ทดสอบ",
+    "STAFFSURNAME": "นามสกุล",
+    "BIRTHDATE": "31 สิงหาคม 2527",
+    "MARRYSTATUS": "0",
+    "HOMEADD": "อาคารพานิช",
+    "DISTRICTNAME": "ในเมือง",
+    "CITYNAME": "เมือง",
+    "PROVINCENAME": "พิษณุโลก",
+    "ZIPCODE": "65150",
+    "TEL": "",
+    "MOBILE": "",
+    "WORKPOSITIONNAME": "เจ้าหน้าที่บริหารงานทั่วไป",
+    "AGE": "34",
+    "Y": "5",
+    "M": "3",
+    "D": "10",
+    "CEPT": "A2",
+    "LOAN": "กยศ.",
+    "LOANSTATUS": "1",
+    "DEPARTMENTNAME": "สำนักงานเลขานุการ",
+    "FACULTYNAME": "คณะวิศวกรรมศาสตร์"
+  }
+]
