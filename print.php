@@ -11,7 +11,7 @@
 
 	$genaral_data_url="";
 	$education_data_url="";
-	$qry_str ="?".$_GET["p"];
+	$qry_str ="? customize parameter here =".$_GET["p"];
 	
 	$ch = curl_init();
 
@@ -64,9 +64,6 @@
 
 	$cept=$obj[0]->CEPT;
 	
-/*	if($obj[0]->CEPT){
-
-	}*/
 
 	$loan=$obj[0]->LOAN;
 
@@ -89,7 +86,6 @@
 	$chEdu = curl_init();
 
 	// Set query data here with the URL
-	//curl_setopt($ch, CURLOPT_URL, 'http://hrmis.nu.ac.th:90/J_DATA.aspx' . $qry_str); 
 
 	curl_setopt($chEdu, CURLOPT_URL, $education_data_url . $qry_str); 
 	curl_setopt($chEdu, CURLOPT_RETURNTRANSFER, 1);
@@ -102,13 +98,6 @@
 	$objEdu = json_decode($contentEdu, true);
 
 	foreach($objEdu as $key=>$value){
-/*		echo "".$value["DEGREELEVELNAME"];
-		echo " , ".$value["DEGREENAME"];
-		echo " , ".$value["MAJORNAME"];
-		echo " , ".$value["GPA"];
-		echo " , ".$value["UNIVERSITYNAME"];
-		echo " , ".$value["GADUATEYEAR"];
-		echo "<br/>";*/
 		
 		$education[$key]=array("degree"=>$value["DEGREELEVELNAME"],"degree_name"=>$value["DEGREENAME"],"major"=>$value["MAJORNAME"]." (".$value["GPA"].")","institution"=>$value["UNIVERSITYNAME"],"education_year"=>$value["GADUATEYEAR"]);
 	}
@@ -119,13 +108,13 @@
 	$pdf=new FPDF('P' , 'mm' , 'A4' );
 	$pdf->AddFont('THSarabun','','THSarabun.php');
 
-	// เพิ่มฟอนต์ภาษาไทยเข้ามา ตัวหนา  กำหนด ชื่อ เป็น angsana
+	// เพิ่มฟอนต์ภาษาไทยเข้ามา ตัวหนา  กำหนด ชื่อ เป็น THSarabun
 	$pdf->AddFont('THSarabun','B','THSarabun Bold.php');
 
-	// เพิ่มฟอนต์ภาษาไทยเข้ามา ตัวหนา  กำหนด ชื่อ เป็น angsana
+	// เพิ่มฟอนต์ภาษาไทยเข้ามา ตัวหนา  กำหนด ชื่อ เป็น THSarabun
 	$pdf->AddFont('THSarabun','I','THSarabun Italic.php');
 
-	// เพิ่มฟอนต์ภาษาไทยเข้ามา ตัวหนา  กำหนด ชื่อ เป็น angsana
+	// เพิ่มฟอนต์ภาษาไทยเข้ามา ตัวหนา  กำหนด ชื่อ เป็น THSarabun
 	$pdf->AddFont('THSarabun','BI','THSarabun Bold Italic.php');
 
 	$pdf->AddPage();
@@ -166,10 +155,7 @@
 	$pdf->Text(15 , 48 ,  iconv( 'UTF-8','cp874' , '2.   เกิดวันที่  '.$date));
 	$pdf->Line(34,49,125,49);
 
-	//$pdf->Text(50 , 48 ,  iconv( 'UTF-8','cp874' , 'เดือน  '.$month));
-	//$pdf->Line(58,49,95,49);
-	//$pdf->Text(95 , 48 ,  iconv( 'UTF-8','cp874' , 'พ.ศ  '.$year));
-	//$pdf->Line(101,49,125,49);
+
 	$pdf->Text(125 , 48 ,  iconv( 'UTF-8','cp874' , 'ปัจจุบันอายุ  '.$age));
 	$pdf->Line(143,49,160,49);
 	$pdf->Text(160 , 48 ,  iconv( 'UTF-8','cp874' , '(ปี)  '));
@@ -207,18 +193,13 @@
 		
 	}
 	
-	//$pdf-> Image('images/uncheck.png',58,52,6,6,'png');
-	//$pdf-> Image('images/uncheck.png',78,52,6,6,'png');
-	//$pdf-> Image('images/uncheck.png',102,52,6,6,'png');
+
 
 
 	$pdf->Text(15 , 64 ,  iconv( 'UTF-8','cp874' , '4.   สถานที่ติดต่อได้สะดวกรวดเร็ว  เลขที่      '.$homeadd));
-	//$pdf->Line(76,65,110,65); 
+
 	$pdf->Line(76,65,200,65); //full
-	//$pdf->Text(110 , 64 ,  iconv( 'UTF-8','cp874' , 'หมู่ที่'));
-	//$pdf->Line(117,65,125,65); 
-	//$pdf->Text(125 , 64 ,  iconv( 'UTF-8','cp874' , 'ถนน'));
-	//$pdf->Line(132,65,200,65); 
+
 
 	$pdf-> Image('images/nu_watermark_word.png',45,74,125,125,'png');
 
